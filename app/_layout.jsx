@@ -1,12 +1,19 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { Stack } from 'expo-router'
+import React, { useEffect, useState } from 'react'
+import { Stack, useRouter } from 'expo-router'
 import "../global.css"
 
 const RootLayout = () => {
+  const [signIn, setSignIn] = useState(true);
+  const router=useRouter()
+  useEffect(()=>{
+    if(!signIn){
+      router.push("/signin");
+    }
+  },[signIn])
   return (
     <Stack screenOptions={{headerShown: false}}>
-        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="(drawer)" />
     </Stack>
   ) 
 }
