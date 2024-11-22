@@ -1,11 +1,27 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { useNavigation } from 'expo-router'
+import { Ionicons } from '@expo/vector-icons'
+import ProfileData from '../components/ProfileData'
 
 const Profile = () => {
+  const navigation=useNavigation();
+  useEffect(()=>{
+    navigation.setOptions({
+      headerShown: true,
+      headerTitle: 'Expo',
+      headerTitleAlign: 'center',
+      headerRight:()=> (
+        <Ionicons name='settings-outline' size={24} color='black'/>
+      ),
+    })
+  })
   return (
     <SafeAreaView>
-      <Text>Profile</Text>
+      <View>
+        <ProfileData />
+      </View>
     </SafeAreaView>
   )
 }

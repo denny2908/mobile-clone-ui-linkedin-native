@@ -5,7 +5,7 @@ import CustomDrawer from '../../components/CustomDrawer';
 const DrawerLayout = () => {
   return (
     <GestureHandlerRootView>
-      <Drawer screenOptions={{headerShown: false}} drawerContent=
+      <Drawer screenOptions={{headerShown: true}} drawerContent=
       {(props)=><CustomDrawer {... props} />}>
         <Drawer.Screen 
             name='(tabs)'
